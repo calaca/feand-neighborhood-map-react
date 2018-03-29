@@ -1,0 +1,4 @@
+.app .content {
+  display: flex;
+  flex-flow: row wrap;
+}
