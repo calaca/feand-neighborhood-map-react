@@ -1,3 +1,49 @@
 footer {
-  background-color: blueviolet;
+  background-color: #37474f;
+  padding: 1.5em 1em;
+}
+
+footer .made-with {
+  text-align: center;
+  color: #fff;
+  margin: 0;
+}
+
+footer .made-with img {
+  height: 22px;
+  margin-bottom: -5px;
+  transform: rotate(0deg);
+  animation: spin 3s linear infinite;
+}
+
+footer .made-with a {
+  display: inline-block;
+  text-decoration: none;
+  color: #26d4f3;
+  padding-bottom: 5px;
+  border-bottom: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+footer .made-with a:after {
+  display: block;
+  content: '';
+  border-bottom: solid 1px #26d4f3;
+  transform: scaleX(0);
+  transform-origin: 0% 50%;
+  transition: transform 0.4s ease-in-out;
+}
+
+footer .made-with a:hover:after,
+footer .made-with a:focus:after {
+  transform: scaleX(1);
+}
+
+@keyframes spin {
+  from {
+    transform:rotate(0deg);
+  }
+  to {
+    transform:rotate(360deg);
+  }
 }

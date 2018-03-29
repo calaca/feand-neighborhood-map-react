@@ -1,11 +1,11 @@
 .top {
-  background-color: #cfd8dc;
+  background-color: #37474f;
   padding: 1em;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.45);
 }
 
 .top-title {
-  color: #263238;
+  color: #fff;
   font-size: 36px;
   font-weight: 300;
   text-transform: uppercase;

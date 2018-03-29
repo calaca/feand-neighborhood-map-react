@@ -90,3 +90,15 @@
 .results-list .result-item:last-child {
   border-bottom: 0;
 }
+
+@media (max-width: 1179px) {
+  .filter {
+    width: 40%;
+  }
+}
+
+@media (max-width: 679px) {
+  .filter {
+    width: 100%;
+  }
+}
