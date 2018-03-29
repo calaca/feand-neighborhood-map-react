@@ -1,4 +1,92 @@
 .filter {
-  background-color: red;
+  background-color: #eceff1;
   width: 30%;
+  padding: 3em 1em;
+}
+
+.filter-title {
+  color: #263238;
+  font-size: 24px;
+  font-weight: 300;
+  margin: 0;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #cfd8dc;
+}
+
+.input-wrapper {
+  position: relative;
+  height: 40px;
+  width: 100%;
+  margin: 1em 0;
+}
+
+.input-wrapper input {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  color: #263238;
+  line-height: 30px;
+  padding: 0.5em 50px 0.5em 0.5em;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.input-wrapper .filter-btn {
+  height: 100%;
+  background-color: #263238;
+  border: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.5em;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.input-wrapper .filter-btn .icon {
+  height: 26px;
+}
+
+.input-wrapper .filter-btn:hover,
+.input-wrapper .filter-btn:focus {
+  background-color: #546e7a;
+}
+
+.results-summary {
+  margin: 0.5em 0;
+  font-size: 16px;
+  color: #263238;
+  font-weight: 300;
+  text-align: center;
+}
+
+.results-summary strong {
+  font-weight: normal;
+}
+
+.results-list {
+  margin: 1em 0 0 0;
+  list-style: none;
+  padding: 0.5em;
+  background-color: #cfd8dc;
+}
+
+.results-list .result-item {
+  color: #263238;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 0.5em;
+  border-bottom: 1px solid #b0bec5;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.results-list .result-item:hover,
+.results-list .result-item:focus {
+  color: #000;
+  padding-left: 20px;
+}
+
+.results-list .result-item:last-child {
+  border-bottom: 0;
 }
