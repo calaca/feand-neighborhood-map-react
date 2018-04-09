@@ -63,7 +63,7 @@ class Filter extends Component {
         this.setAnimation(window.google.maps.Animation.BOUNCE);
         setTimeout(() => {
           this.setAnimation(null);
-        }, 750);
+        }, 375);
       });
 
       // extends map bounds to the marker
