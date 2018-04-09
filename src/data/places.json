@@ -1,0 +1,34 @@
+[
+  {
+    "id": "01",
+    "name": "Bistrô Maria Doceu!",
+    "position": {
+      "lat": "-15.8513359",
+      "lng": "-48.9583927"
+    }
+  },
+  {
+    "id": "02",
+    "name": "Casebre Restaurante",
+    "position": {
+      "lat": "-15.8504318",
+      "lng": "-48.9569744"
+    }
+  },
+  {
+    "id": "03",
+    "name": "Montserrat Gastronomia",
+    "position": {
+      "lat": "-15.8487617",
+      "lng": "-48.9600882"
+    }
+  },
+  {
+    "id": "04",
+    "name": "Santa Dica Cervejaria",
+    "position": {
+      "lat": "-15.8503222",
+      "lng": "-48.9576594"
+    }
+  }
+]

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Map.css';
 
-class Map extends Component {
-  render() {
-    return <main className="map">Map</main>
-  }
+const Map = () => {
+  return (
+    <main id="map" className="map"></main>
+  )
 }
 
 export default Map;
