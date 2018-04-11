@@ -61,7 +61,11 @@ class App extends Component {
     center: { lat: -15.8511, lng: -48.9589 }
   }
 
-  // https://stackoverflow.com/questions/41709765/how-to-load-the-google-maps-api-script-in-my-react-app-only-when-it-is-require
+  /**
+  * @description Checks if the Gmap is loaded then prepare the map and its components
+  * @param {boolean} isScriptLoadSucceed - Flag that tells if the scripts have been loaded
+  * https://stackoverflow.com/questions/41709765/how-to-load-the-google-maps-api-script-in-my-react-app-only-when-it-is-require
+  */
   componentWillReceiveProps({ isScriptLoadSucceed }) {
     if (isScriptLoadSucceed) {
       const { center } = this.state;
