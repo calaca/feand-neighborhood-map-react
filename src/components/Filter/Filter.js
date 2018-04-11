@@ -138,7 +138,10 @@ class Filter extends Component {
 
     return (
       <aside className="filter">
-        <h2 className="filter-title">Filter Search</h2>
+        <h2 className="filter-title">
+          <img src={FilterIcon} alt="Filter" className="icon" title="Filter" />
+          Filter Search
+        </h2>
         <div className="input-wrapper">
           <Debounce time="300" handler="onChange">
             <input 
@@ -148,9 +151,6 @@ class Filter extends Component {
               onChange={e => this.filterPlaces(e.target.value)}
             />
           </Debounce>
-          <button className="filter-btn" aria-label="Filter">
-            <img src={FilterIcon} alt="Filter" className="icon" title="Filter"/>
-          </button>
         </div>
         <div className="results">
           {

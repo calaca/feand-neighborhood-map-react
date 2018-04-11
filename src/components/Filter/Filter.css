@@ -13,6 +13,10 @@
   border-bottom: 1px solid #cfd8dc;
 }
 
+.filter-title .icon {
+  height: 26px;
+}
+
 .input-wrapper {
   position: relative;
   height: 40px;
@@ -29,27 +33,6 @@
   padding: 0.5em 50px 0.5em 0.5em;
   font-size: 18px;
   font-weight: 300;
-}
-
-.input-wrapper .filter-btn {
-  height: 100%;
-  background-color: #263238;
-  border: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 0.5em;
-  transition: all 0.4s ease-in-out;
-  cursor: pointer;
-}
-
-.input-wrapper .filter-btn .icon {
-  height: 26px;
-}
-
-.input-wrapper .filter-btn:hover,
-.input-wrapper .filter-btn:focus {
-  background-color: #546e7a;
 }
 
 .results-summary {

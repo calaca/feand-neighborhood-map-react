@@ -3,10 +3,15 @@ footer {
   padding: 1.5em 1em;
 }
 
-footer .made-with {
+footer .made-with,
+footer .icons {
   text-align: center;
   color: #fff;
   margin: 0;
+}
+
+footer .icons {
+  font-size: 14px;
 }
 
 footer .made-with img {
@@ -16,7 +21,8 @@ footer .made-with img {
   animation: spin 3s linear infinite;
 }
 
-footer .made-with a {
+footer .made-with a,
+footer .icons a {
   display: inline-block;
   text-decoration: none;
   color: #26d4f3;
@@ -25,7 +31,8 @@ footer .made-with a {
   transition: all 0.4s ease-in-out;
 }
 
-footer .made-with a:after {
+footer .made-with a:after,
+footer .icons a:after {
   display: block;
   content: '';
   border-bottom: solid 1px #26d4f3;
@@ -35,7 +42,9 @@ footer .made-with a:after {
 }
 
 footer .made-with a:hover:after,
-footer .made-with a:focus:after {
+footer .made-with a:focus:after,
+footer .icons a:hover:after,
+footer .icons a:focus:after {
   transform: scaleX(1);
 }
 

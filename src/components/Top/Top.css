@@ -11,3 +11,19 @@
   text-transform: uppercase;
   margin: 0;
 }
+
+.top-title img {
+  margin-bottom: -10px;
+  height: 44px;
+}
+
+@media (max-width: 769px) {
+  .top-title {
+    text-align: center;
+  }
+
+  .top-title span {
+    display: inline-block;
+    width: 100%;
+  }
+}
