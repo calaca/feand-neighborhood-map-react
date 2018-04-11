@@ -20,11 +20,11 @@ class App extends Component {
         },
       },
       {
-        id: '53f937e5498e07b7679f1cb5',
-        name: 'Casebre Restaurante',
+        id: '58b1e307561ded3fc4672c46',
+        name: 'Haikai Jardim Gastronômico',
         position: {
-          lat: -15.8504318,
-          lng: -48.9569744
+          lat: -15.8503877,
+          lng: -48.959897
         },
       },
       {
@@ -75,7 +75,7 @@ class App extends Component {
 
       // init bounds and infowindow
       const bounds = new window.google.maps.LatLngBounds();
-      const infowindow = new window.google.maps.InfoWindow({});
+      const infowindow = new window.google.maps.InfoWindow({ maxWidth: 250 });
 
       // store map info in state
       this.setState({

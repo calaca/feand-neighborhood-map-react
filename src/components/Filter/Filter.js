@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Debounce } from 'react-throttle';
+import { getDetails } from '../../utils/FoursquareAPI';
 import './Filter.css';
 import FilterIcon from '../../assets/imgs/funnel.svg';
+import StarIcon from '../../assets/imgs/star.svg';
+import FoursquareIcon from '../../assets/imgs/foursquare.svg';
 
 class Filter extends Component {
   state = {
@@ -9,8 +12,6 @@ class Filter extends Component {
     showingPlaces: []
   }
 
-  // TODO: add third party info about the places
-  // TODO: improve a11y (dev tools audit)
   // TODO: finish README file
   // TODO: install pwa? https://developers.google.com/web/fundamentals/app-install-banners/?hl=en
 
@@ -18,7 +19,6 @@ class Filter extends Component {
   * @description Sets initial state for result list, markers, etc.
   */
   componentDidMount() {
-    // set initial result list, markers and friends
     this.filterPlaces(this.state.query);
   }
 
@@ -60,14 +60,6 @@ class Filter extends Component {
   }
 
   /**
-  * @description Create infowindow content
-  * @param {object} place - The place object containing information about it
-  */
-  createContent = (place) => {
-    return `<p tabIndex="0">This is the content for ${place.name}</p>`;
-  }
-
-  /**
   * @description Animate marker to bounce once
   * @param {object} marker - The place marker
   */
@@ -86,9 +78,21 @@ class Filter extends Component {
   * @param {object} marker - The place marker
   */
   setInfowindow = (map, place, infowindow, marker) => {
-    infowindow.setContent(this.createContent(place));
+    infowindow.setContent(marker.content);
     infowindow.open(map, marker);
     this.markerAnimation(marker);
+  }
+
+  /**
+  * @description Create the HTML markup to show stars
+  * @param {image} StarIcon - The star icon image
+  */
+  createStars = (rating) => {
+    let markup = [];
+    for(let i = 0; i < rating; i++) {
+      markup.push(`<img class="icon" src="${StarIcon}" alt="star icon" aria-hidden="true"/>`);
+    }
+    return markup;
   }
 
 /**
@@ -107,7 +111,46 @@ class Filter extends Component {
         title: place.name,
         animation: window.google.maps.Animation.DROP
       });
-      
+
+      getDetails(place.id)
+        .then(placeDetails => {
+          const address = placeDetails.location.address || 'Address not found';
+          const categories = placeDetails.categories;
+          const price = placeDetails.attributes.groups['0'].summary;
+          const priceText = placeDetails.price.message;
+          const rating = parseInt(placeDetails.rating, 10);
+          const stars = this.createStars(rating);
+          const link = placeDetails.canonicalUrl;
+          const photo = `${placeDetails.bestPhoto.prefix}width150${placeDetails.bestPhoto.suffix}`
+
+          place['marker'].content = `
+          <div class="details-place" tabindex="0">
+            <h3 class="details-title">
+              <a href="${link}">${place.name}</a>
+            </h3>
+            <p class="details-address">${address}</p>
+            <div class="details-rating" title="${place.name}'s rating is ${rating}">
+              ${ stars.join(' ') }
+            </div>
+            <div class="details-price" title="The price is ${priceText}">
+              <span aria-hidden="true">${price}</span>
+            </div>
+            <div class="details-category">
+              ${
+                categories.map(category =>
+                  `<span class="category-pill">${category.name}</span>`
+                )
+              }
+            </div>
+            <div class="details-img">
+              <img src="${photo}" alt="Best photo of ${place.name}"/>
+            </div>
+            <a class="details-more" href="${link}" title="More at Foursquare">
+              <img src="${FoursquareIcon}" alt="Foursquare icon"/>
+            </a>
+          </div>`
+        });
+
       // create a listener for a click and link it to the infowindow
       place.marker.addListener('click', function() {
         self.setInfowindow(map, place, infowindow, this);
@@ -140,7 +183,7 @@ class Filter extends Component {
     return (
       <aside className="filter">
         <h2 className="filter-title" tabIndex="0">
-          <img src={FilterIcon} alt="Filter" className="icon" title="Filter" />
+          <img src={FilterIcon} alt="Filter" className="icon" title="Filter icon" />
           Filter Search
         </h2>
         <div className="input-wrapper">
@@ -148,6 +191,7 @@ class Filter extends Component {
             <input 
               type="text"
               placeholder="Type a location name here to filter places"
+              aria-label="Type a location name here to filter places"
               onChange={e => this.filterPlaces(e.target.value)}
             />
           </Debounce>
