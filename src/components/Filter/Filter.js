@@ -5,6 +5,7 @@ import './Filter.css';
 import FilterIcon from '../../assets/imgs/funnel.svg';
 import StarIcon from '../../assets/imgs/star.svg';
 import FoursquareIcon from '../../assets/imgs/foursquare.svg';
+import ErrorIcon from '../../assets/imgs/multiply.svg';
 
 class Filter extends Component {
   state = {
@@ -147,7 +148,16 @@ class Filter extends Component {
               <img src="${FoursquareIcon}" alt="Foursquare icon"/>
             </a>
           </div>`
-        });
+        })
+        .catch(err => {
+          console.log('There was an error while getting the venue details with ', err);
+          place['marker'].content = `
+          <p class="infowindow-error">
+            <img src="${ErrorIcon}" alt="Red letter X"/>
+            <span>There was an error while getting the venue details. Please try again later.</span>
+          </p>
+          `
+        })
 
       // create a listener for a click and link it to the infowindow
       place.marker.addListener('click', function() {

@@ -8,3 +8,4 @@ export const getDetails = (id) =>
   fetch(`${api}${id}?client_id=${FS_CLIENT_ID}&client_secret=${FS_CLIENT_SECRET}&v=${version}&locale=${lang}`)
     .then(res => res.json())
     .then(data => data.response.venue)
+    .catch(err => console.log('Couldn\'t retrieve venue details with ', err))

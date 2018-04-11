@@ -146,6 +146,7 @@
 }
 
 .details-img img {
+  max-width: 100%;
   margin: 1em;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
 }
@@ -166,6 +167,18 @@
 
 .details-more img {
   height: 20px;
+}
+
+.infowindow-error span {
+  color: #2f3542;
+  font-size: 16px;
+  display: block;
+}
+
+.infowindow-error img {
+  display: block;
+  height: 20px;
+  margin: 5px auto;
 }
 
 @media (max-width: 1179px) {

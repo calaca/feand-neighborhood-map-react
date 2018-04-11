@@ -6,6 +6,7 @@ import Top from '../Top/Top';
 import Filter from '../Filter/Filter';
 import Map from '../Map/Map';
 import Footer from '../Footer/Footer';
+import Error from '../Error/Error';
 import './App.css';
 
 class App extends Component {
@@ -87,12 +88,13 @@ class App extends Component {
 
     } else {
       this.setState({ error: true });
-      console.log('There was an error while loading the Map scripts.');
+      console.log('There was an error while loading the Google Maps scripts.');
     }
 
   }
 
   render() {
+    const { error } = this.state;
     return (
       <div className="app">
         <Top />
@@ -100,7 +102,10 @@ class App extends Component {
           {
             this.state.loaded && <Filter data={this.state} />
           }
-          <Map />
+          {
+            error ? <Error message={'There was an error while loading the Google Maps scripts. Please try again later.'} />
+            : <Map />
+          }
         </div>
         <Footer />
       </div>

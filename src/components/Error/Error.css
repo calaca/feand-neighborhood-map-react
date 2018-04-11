@@ -1,0 +1,29 @@
+.error {
+  padding: 3em;
+  text-align: center;
+  background-color: #2f3542;
+  margin: 3em auto;
+  border-radius: 10px;
+  box-shadow: 10px 10px 25px 0px rgba(0,0,0,0.25);
+  transition: all 0.4s ease-in-out;
+}
+
+.error:hover,
+.error:focus {
+  box-shadow: 4px 4px 15px 0px rgba(0,0,0,0.25);
+}
+
+.error .message {
+  color: #dfe4ea;
+  font-size: 18px;
+}
+
+.error .message p {
+  margin: 0;
+}
+
+.error .message img {
+  height: 30px;
+  display: block;
+  margin: 1em auto;
+}
