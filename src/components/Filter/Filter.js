@@ -152,7 +152,7 @@ class Filter extends Component {
         .catch(err => {
           console.log('There was an error while getting the venue details with ', err);
           place['marker'].content = `
-          <p class="infowindow-error">
+          <p class="infowindow-error" role="alert">
             <img src="${ErrorIcon}" alt="Red letter X"/>
             <span>There was an error while getting the venue details. Please try again later.</span>
           </p>

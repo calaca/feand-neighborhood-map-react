@@ -2,88 +2,59 @@
 
 [![FEAND nanodegree](https://img.shields.io/badge/udacity-FEAND-02b3e4.svg?style=flat)](https://br.udacity.com/course/front-end-web-developer-nanodegree--nd001-br-advanced)
 
-> Neighborhood map made with React, Google Maps, service workers, accessibility, etc.
+> PWA made with React, Google Maps, service workers, accessibility, etc.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Clone this repository in your computer:
+
+```
+$ git clone https://github.com/calaca/feand-neighborhood-map-react.git
+```
+
+Or [download](https://github.com/calaca/feand-neighborhood-map-react/archive/master.zip) it as a ZIP file.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+The only dependency is [Node and NPM](https://nodejs.org/en/download/) (comes together with Node).
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+Open a terminal at the project root and run `npm install` to install all dependencies.
 
-Say what the step will be
+### NPM scripts
 
-```
-Give the example
-```
+- `npm run start`: runs the app in development mode
+- `npm run build`: builds the app for production to the build folder
+- `npm run deploy`: deploys the app to GitHub Pages
+- `npm run test`: runs the test watcher in an interactive mode
 
-And repeat
+## Running the project
 
-```
-until finished
-```
+### Development
 
-End with an example of getting some data out of the system or using it for a little demo
+1. Open a terminal at the app's root folder and run `npm start`
+2. Start coding!
 
-## Running the tests
+### Production
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+Click [here](https://calaca.github.io/feand-neighborhood-map-react/) for the live version of this app.
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+1. Run `npm run deploy`
+2. Access http://myname.github.io/myapp
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+* [Google Maps API](https://developers.google.com/maps/?hl=en-us) - Google's map library
+* [Foursquare API](https://developer.foursquare.com/) - Local search-and-discovery service app
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+Please read [CONTRIBUTING](https://github.com/calaca/feand-neighborhood-map-react/blob/master/CONTRIBUTING.md) for details on the process for submitting pull requests.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/calaca/feand-neighborhood-map-react/blob/master/LICENSE) file for details
