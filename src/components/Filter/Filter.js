@@ -9,6 +9,12 @@ class Filter extends Component {
     showingPlaces: []
   }
 
+  // TODO: add third party info about the places
+  // TODO: remove that useless filter button
+  // TODO: improve a11y (dev tools audit)
+  // TODO: add service worker to cache the app
+  // TODO: update README file
+
   /**
   * @description Sets initial state for result list, markers, etc.
   */
