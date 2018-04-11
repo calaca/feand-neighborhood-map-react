@@ -2,6 +2,7 @@
   "name": "fend-neighborhood-map-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://calaca.github.io/feand-neighborhood-map-react",
   "dependencies": {
     "material-ui": "^1.0.0-beta.38",
     "react": "^16.2.0",
@@ -13,7 +14,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "npm run build && gh-pages -d build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
   }
 }

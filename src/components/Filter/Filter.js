@@ -12,9 +12,6 @@ class Filter extends Component {
     showingPlaces: []
   }
 
-  // TODO: finish README file
-  // TODO: install pwa? https://developers.google.com/web/fundamentals/app-install-banners/?hl=en
-
   /**
   * @description Sets initial state for result list, markers, etc.
   */
@@ -112,6 +109,7 @@ class Filter extends Component {
         animation: window.google.maps.Animation.DROP
       });
 
+      // create infowindow content
       getDetails(place.id)
         .then(placeDetails => {
           const address = placeDetails.location.address || 'Address not found';
