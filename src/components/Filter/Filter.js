@@ -11,8 +11,8 @@ class Filter extends Component {
 
   // TODO: add third party info about the places
   // TODO: improve a11y (dev tools audit)
-  // TODO: add service worker to cache the app
-  // TODO: update README file
+  // TODO: finish README file
+  // TODO: install pwa? https://developers.google.com/web/fundamentals/app-install-banners/?hl=en
 
   /**
   * @description Sets initial state for result list, markers, etc.

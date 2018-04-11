@@ -12,36 +12,44 @@ class App extends Component {
   state = {
     places: [
       {
-        id: '01',
-        name: 'Bistrô Maria Doceu',
+        id: '53c2cf54498ef154bed18e66',
+        name: 'Bistrô Maria Docéu',
         position: {
           lat: -15.8513359,
           lng: -48.9583927
-        }
+        },
       },
       {
-        id: '02',
+        id: '53f937e5498e07b7679f1cb5',
         name: 'Casebre Restaurante',
         position: {
           lat: -15.8504318,
           lng: -48.9569744
-        }
+        },
       },
       {
-        id: '03',
+        id: '4daa3de9cda1652a2b894f83',
         name: 'Montserrat Gastronomia',
         position: {
           lat: -15.8487617,
           lng: -48.9600882
-        }
+        },
       },
       {
-        id: '04',
+        id: '55be44a2498e1d6c95826a24',
         name: 'Santa Dica Cervejaria',
         position: {
           lat: -15.8503222,
           lng: -48.9576594
-        }
+        },
+      },
+      {
+        id: '542939e2498e7e2b1a5d0b96',
+        name: 'Pé di Café',
+        position: {
+          lat: -15.8501328,
+          lng: -48.9578972
+        },
       }
     ],
     map: null,
