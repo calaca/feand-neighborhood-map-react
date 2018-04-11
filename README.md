@@ -1,4 +1,4 @@
-# Restaurant Reviews :fork_and_knife: :eyeglasses:
+# Neighborhood Map | React version :globe_with_meridians:
 
 [![FEAND nanodegree](https://img.shields.io/badge/udacity-FEAND-02b3e4.svg?style=flat)](https://br.udacity.com/course/front-end-web-developer-nanodegree--nd001-br-advanced)
 
