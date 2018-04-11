@@ -10,7 +10,6 @@ class Filter extends Component {
   }
 
   // TODO: add third party info about the places
-  // TODO: remove that useless filter button
   // TODO: improve a11y (dev tools audit)
   // TODO: add service worker to cache the app
   // TODO: update README file
@@ -65,7 +64,7 @@ class Filter extends Component {
   * @param {object} place - The place object containing information about it
   */
   createContent = (place) => {
-    return `<p>This is the content for ${place.name}</p>`;
+    return `<p tabIndex="0">This is the content for ${place.name}</p>`;
   }
 
   /**
@@ -128,8 +127,10 @@ class Filter extends Component {
   * @param {object} place - The infowindow place
   */
   openInfowindow = (e, place) => {
-    const { map, infowindow } = this.props.data;
-    this.setInfowindow(map, place, infowindow, place.marker);
+    if (e.key === 'Enter' || e.type === 'click') {
+      const { map, infowindow } = this.props.data;
+      this.setInfowindow(map, place, infowindow, place.marker);
+    }
   }
 
   render() {
@@ -138,7 +139,7 @@ class Filter extends Component {
 
     return (
       <aside className="filter">
-        <h2 className="filter-title">
+        <h2 className="filter-title" tabIndex="0">
           <img src={FilterIcon} alt="Filter" className="icon" title="Filter" />
           Filter Search
         </h2>
@@ -146,8 +147,7 @@ class Filter extends Component {
           <Debounce time="300" handler="onChange">
             <input 
               type="text"
-              placeholder="Type a location name here"
-              aria-label="Type a location name here"
+              placeholder="Type a location name here to filter places"
               onChange={e => this.filterPlaces(e.target.value)}
             />
           </Debounce>
@@ -161,13 +161,15 @@ class Filter extends Component {
               </p>
             )
           }
-          <ul className="results-list">
+          <ul className="results-list" tabIndex="0">
             {
               showingPlaces.map(place => (
                 <li
                   key={place.id}
                   className="result-item"
+                  tabIndex="0"
                   onClick={e => this.openInfowindow(e, place)}
+                  onKeyPress={e => this.openInfowindow(e, place)}
                 >
                   {place.name}
                 </li>

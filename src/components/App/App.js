@@ -61,7 +61,8 @@ class App extends Component {
       const map = new window.google.maps.Map(document.getElementById('map'), {
         zoom: 16,
         center: center,
-        styles: MapStyles
+        styles: MapStyles,
+        title: 'Map of interesting places in Pirenópolis'
       });
 
       // init bounds and infowindow
