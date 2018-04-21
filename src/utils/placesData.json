@@ -1,0 +1,42 @@
+[
+  {
+    "id": "53c2cf54498ef154bed18e66",
+    "name": "Bistrô Maria Docéu",
+    "position": {
+      "lat": -15.851336,
+      "lng": -48.958393
+    }
+  },
+  {
+    "id": "58b1e307561ded3fc4672c46",
+    "name": "Haikai Jardim Gastronômico",
+    "position": {
+      "lat": -15.850388,
+      "lng": -48.959896
+    }
+  },
+  {
+    "id": "4daa3de9cda1652a2b894f83",
+    "name": "Montserrat Gastronomia",
+    "position": {
+      "lat": -15.848762,
+      "lng": -48.960087
+    }
+  },
+  {
+    "id": "55be44a2498e1d6c95826a24",
+    "name": "Santa Dica Cervejaria",
+    "position": {
+      "lat": -15.850322,
+      "lng": -48.95766
+    }
+  },
+  {
+    "id": "542939e2498e7e2b1a5d0b96",
+    "name": "Pé di Café",
+    "position": {
+      "lat": -15.850133,
+      "lng": -48.957897
+    }
+  }
+]

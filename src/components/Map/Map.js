@@ -1,6 +1,29 @@
 import React from 'react';
+import { compose } from 'recompose';
+import { GoogleMap, withGoogleMap, withScriptjs } from 'react-google-maps';
+import MapStyles from '../../utils/mapStyles.json';
+import MarkerInfo from '../MarkerInfo/MarkerInfo';
 import './Map.css';
 
-const Map = () => (<main id="map" className="map" role="application" tabIndex="0"></main> );
+const Map = compose(withScriptjs, withGoogleMap)(props =>
+  <GoogleMap
+    defaultZoom={16}
+    center={{ lat: -15.8511, lng: -48.9589 }}
+    defaultOptions={{ styles: MapStyles }}
+  >
+  {
+    props.places.map(place => (
+        <MarkerInfo
+          key={place.id}
+          placeId={place.id}
+          placePos={place.position}
+          onToggleOpen={props.onToggleOpen}
+          showInfoId={props.showInfoId}
+        />
+    ))
+  }
+  </GoogleMap>
+);
+
 
 export default Map;
