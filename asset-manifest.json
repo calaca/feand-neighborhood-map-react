@@ -1,8 +1,8 @@
 {
-  "main.css": "static/css/main.9dce71f2.css",
-  "main.css.map": "static/css/main.9dce71f2.css.map",
-  "main.js": "static/js/main.9b78d0eb.js",
-  "main.js.map": "static/js/main.9b78d0eb.js.map",
+  "main.css": "static/css/main.8fb23a40.css",
+  "main.css.map": "static/css/main.8fb23a40.css.map",
+  "main.js": "static/js/main.c613655d.js",
+  "main.js.map": "static/js/main.c613655d.js.map",
   "static/media/Roboto-Light.eot": "static/media/Roboto-Light.35d85034.eot",
   "static/media/Roboto-Light.svg": "static/media/Roboto-Light.c7c92899.svg",
   "static/media/Roboto-Light.ttf": "static/media/Roboto-Light.2382fa8a.ttf",
@@ -23,5 +23,7 @@
   "static/media/logo-world.svg": "static/media/logo-world.9ca0c7d3.svg",
   "static/media/logo.svg": "static/media/logo.5d5d9eef.svg",
   "static/media/multiply.svg": "static/media/multiply.48f17f85.svg",
+  "static/media/pin_def.svg": "static/media/pin_def.f2977889.svg",
+  "static/media/pin_sel.svg": "static/media/pin_sel.8646db7e.svg",
   "static/media/star.svg": "static/media/star.c0210b84.svg"
 }
