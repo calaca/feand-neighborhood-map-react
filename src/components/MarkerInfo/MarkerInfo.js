@@ -22,6 +22,7 @@ class MarkerInfo extends Component {
   */
   componentDidMount() {
     const placeId = this.props.placeId;
+
     getDetails(placeId)
       .then(placeDetails => {
         this.setState({ placeDetails, loaded: true })
@@ -29,7 +30,7 @@ class MarkerInfo extends Component {
       .catch(err => {
         console.log('Foursquare API returned with ', err);
         this.setState({ error: true });
-      })
+      });
   }
 
   render() {

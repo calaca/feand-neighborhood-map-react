@@ -9,8 +9,7 @@ import FilterIcon from '../../assets/imgs/funnel.svg';
 class Filter extends Component {
   render() {
     const { places, showingPlaces } = this.props.data;
-    const filterPlaces = this.props.filterPlaces;
-    const onToggleOpen = this.props.onToggleOpen;
+    const { filterPlaces, onToggleOpen } = this.props;
 
     return (
       <aside className="filter">
