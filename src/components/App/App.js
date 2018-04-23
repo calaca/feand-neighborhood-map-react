@@ -32,6 +32,7 @@ class App extends Component {
   /**
   * @description Toggle maker's infowindow open
   * @param {string} id - The marker's place ID
+  * @param {string} action - Type of action fired (open or close)
   */
   onToggleOpen = (id, action) => {
     this.setState({
