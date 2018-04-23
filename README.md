@@ -48,7 +48,7 @@ Click [here](https://calaca.github.io/feand-neighborhood-map-react/) for the liv
 ## Built With
 
 * [React](https://reactjs.org/) - A JavaScript library for building user interfaces
-* [Google Maps API](https://developers.google.com/maps/?hl=en-us) - Google's map library
+* [react-google-maps](https://github.com/tomchentw/react-google-maps) - React.js Google Maps integration component
 * [Foursquare API](https://developer.foursquare.com/) - Local search-and-discovery service app
 
 ## Contributing

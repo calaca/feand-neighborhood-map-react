@@ -12,15 +12,28 @@ const Map = compose(withScriptjs, withGoogleMap)(props =>
     defaultOptions={{ styles: MapStyles }}
   >
   {
-    props.places.map(place => (
+    props.showingPlaces.length === 0 ?
+      props.places.map(place => (
+          <MarkerInfo
+            key={place.id}
+            placeId={place.id}
+            placePos={place.position}
+            onToggleOpen={props.onToggleOpen}
+            showInfoId={props.showInfoId}
+            action={props.action}
+          />
+      ))
+    :
+      props.showingPlaces.map(place => (
         <MarkerInfo
           key={place.id}
           placeId={place.id}
           placePos={place.position}
           onToggleOpen={props.onToggleOpen}
           showInfoId={props.showInfoId}
+          action={props.action}
         />
-    ))
+      ))
   }
   </GoogleMap>
 );

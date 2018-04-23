@@ -3,47 +3,14 @@ import { Debounce } from 'react-throttle';
 import './Filter.css';
 import FilterIcon from '../../assets/imgs/funnel.svg';
 
+// TODO: why isn't the filter search working on mobile?
+// TODO: better display filter results
+
 class Filter extends Component {
-  state = {
-    query: '',
-    showingPlaces: []
-  }
-
-  /**
-  * @description Sets initial state for result list, markers, etc.
-  */
-  componentDidMount() {
-    this.filterPlaces(this.state.query);
-  }
-
-  /**
-  * @description Filter places to show
-  * @param {string} query - The search query
-  */
-  filterPlaces = (query) => {
-    const { places } = this.props.data;
-    let showingPlaces;
-
-    // update query in state
-    this.setState({
-      query: query.toLowerCase().trim()
-    });
-
-    // filter the places to show
-    if (query) {
-      showingPlaces = places.filter(place => place['name'].toLowerCase().includes(query));
-    } else {
-      showingPlaces = places;
-    }
-
-    // set places to show in state
-    this.setState({ showingPlaces });
-  }
-
   render() {
-    const { places } = this.props.data;
+    const { places, showingPlaces } = this.props.data;
+    const filterPlaces = this.props.filterPlaces;
     const onToggleOpen = this.props.onToggleOpen;
-    const { showingPlaces } = this.state;
 
     return (
       <aside className="filter">
@@ -57,7 +24,7 @@ class Filter extends Component {
               type="text"
               placeholder="Type a location name here to filter places"
               aria-label="Type a location name here to filter places"
-              onChange={e => this.filterPlaces(e.target.value)}
+              onChange={e => filterPlaces(e.target.value)}
             />
           </Debounce>
         </div>
@@ -72,12 +39,24 @@ class Filter extends Component {
           }
           <ul className="results-list" tabIndex="0">
             {
+              showingPlaces.length === 0 ?
+                places.map(place => (
+                  <li
+                    key={place.id}
+                    className="result-item"
+                    tabIndex="0"
+                    onClick={() => onToggleOpen(place.id, 'open')}
+                  >
+                    {place.name}
+                  </li>
+                ))
+              :
               showingPlaces.map(place => (
                 <li
                   key={place.id}
                   className="result-item"
                   tabIndex="0"
-                  onClick={() => onToggleOpen(place.id)}
+                  onClick={() => onToggleOpen(place.id, 'open')}
                 >
                   {place.name}
                 </li>

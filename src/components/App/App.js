@@ -11,11 +11,17 @@ import './App.css';
 class App extends Component {
   state = {
     places: [],
+    showingPlaces: [],
+    query: '',
     center: { lat: -15.8511, lng: -48.9589 },
     showInfoId: false,
-    loaded: false
+    loaded: false,
+    action: ''
   }
 
+  /**
+  * @description Load initial data
+  */
   componentDidMount() {
     this.setState({
       places: PlacesData,
@@ -23,10 +29,39 @@ class App extends Component {
     });
   }
 
-  onToggleOpen = (place) => {
+  /**
+  * @description Toggle maker's infowindow open
+  * @param {string} id - The marker's place ID
+  */
+  onToggleOpen = (id, action) => {
     this.setState({
-      showInfoId: place
+      showInfoId: id,
+      action
     });
+  }
+
+  /**
+  * @description Filter places to show
+  * @param {string} query - The search query
+  */
+  filterPlaces = (query) => {
+    const { places } = this.state;
+    let showingPlaces;
+
+    // update query in state
+    this.setState({
+      query: query.toLowerCase().trim()
+    });
+
+    // filter the places to show
+    if (query) {
+      showingPlaces = places.filter(place => place['name'].toLowerCase().includes(query));
+    } else {
+      showingPlaces = places;
+    }
+
+    // set places to show in state
+    this.setState({ showingPlaces });
   }
 
   render() {
@@ -35,13 +70,20 @@ class App extends Component {
         <Top />
         <div className="content">
           {
-            this.state.loaded && <Filter data={this.state} onToggleOpen={this.onToggleOpen} />
+            this.state.loaded &&
+            <Filter
+              data={this.state}
+              onToggleOpen={this.onToggleOpen}
+              filterPlaces={this.filterPlaces}
+            />
           }
           {
             <Map
               onToggleOpen={this.onToggleOpen}
               showInfoId={this.state.showInfoId}
+              action={this.state.action}
               places={this.state.places}
+              showingPlaces={this.state.showingPlaces}
               containerElement={<main className="map" role="application" tabIndex="0"></main>}
               mapElement={<div style={{ height: `100%` }}></div>}
               loadingElement={
