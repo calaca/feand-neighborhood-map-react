@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import { GoogleMap, withGoogleMap, withScriptjs } from 'react-google-maps';
 import MapStyles from '../../utils/mapStyles.json';
@@ -38,5 +39,12 @@ const Map = compose(withScriptjs, withGoogleMap)(props =>
   </GoogleMap>
 );
 
+Map.propTypes = {
+  onToggleOpen: PropTypes.func.isRequired,
+  showInfoId: PropTypes.string.isRequired,
+  action: PropTypes.string.isRequired,
+  places: PropTypes.array.isRequired,
+  showingPlaces: PropTypes.array.isRequired
+}
 
 export default Map;

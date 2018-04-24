@@ -1,6 +1,7 @@
 /*global google*/
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Marker, InfoWindow } from 'react-google-maps';
 import { getDetails } from '../../utils/FoursquareAPI';
 import StarIcon from '../../assets/imgs/star.svg';
@@ -89,6 +90,15 @@ class MarkerInfo extends Component {
       </Marker>
     );
   }
+}
+
+MarkerInfo.propTypes = {
+  key: PropTypes.string.isRequired,
+  placeId: PropTypes.string.isRequired,
+  placePos: PropTypes.object.isRequired,
+  onToggleOpen: PropTypes.func.isRequired,
+  showInfoId: PropTypes.string.isRequired,
+  action: PropTypes.string.isRequired
 }
 
 export default MarkerInfo;
