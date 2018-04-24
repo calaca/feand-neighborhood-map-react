@@ -3,9 +3,6 @@ import { Debounce } from 'react-throttle';
 import './Filter.css';
 import FilterIcon from '../../assets/imgs/funnel.svg';
 
-// TODO: why isn't the filter search working on mobile?
-// TODO: better display filter results
-
 class Filter extends Component {
   render() {
     const { places, showingPlaces } = this.props.data;
@@ -28,29 +25,12 @@ class Filter extends Component {
           </Debounce>
         </div>
         <div className="results">
-          {
-            showingPlaces.length !== places.length &&
-            (
-              <p className="results-summary">
-                Showing < strong >{showingPlaces.length}</strong> of <strong>{places.length}</strong> places.
-              </p>
-            )
-          }
+          <p className="results-summary">
+            Showing < strong >{showingPlaces.length}</strong> of <strong>{places.length}</strong> places.
+          </p>
           <ul className="results-list" tabIndex="0">
             {
-              showingPlaces.length === 0 ?
-                places.map(place => (
-                  <li
-                    key={place.id}
-                    className="result-item"
-                    tabIndex="0"
-                    onClick={() => onToggleOpen(place.id, 'open')}
-                  >
-                    {place.name}
-                  </li>
-                ))
-              :
-              showingPlaces.map(place => (
+              showingPlaces.map(place =>
                 <li
                   key={place.id}
                   className="result-item"
@@ -59,7 +39,7 @@ class Filter extends Component {
                 >
                   {place.name}
                 </li>
-              ))
+              )
             }
           </ul>
         </div>

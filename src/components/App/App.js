@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import escapeRegExp from 'escape-string-regexp';
+import sortBy from 'sort-by';
 import { MAP_API_KEY } from '../../utils/apiKeys';
 import PlacesData from '../../utils/placesData.json';
 import Top from '../Top/Top';
@@ -25,6 +27,7 @@ class App extends Component {
   componentDidMount() {
     this.setState({
       places: PlacesData,
+      showingPlaces: PlacesData,
       loaded: true
     });
   }
@@ -51,17 +54,21 @@ class App extends Component {
 
     // update query in state
     this.setState({
-      query: query.toLowerCase().trim()
+      query: query.trim()
     });
 
-    // filter the places to show
+    // filter places to show based on query
     if (query) {
-      showingPlaces = places.filter(place => place['name'].toLowerCase().includes(query));
+      const match = new RegExp(escapeRegExp(query), 'i');
+      showingPlaces = places.filter(place => match.test(place.name));
     } else {
       showingPlaces = places;
     }
 
-    // set places to show in state
+    // sort places to show by place name
+    showingPlaces.sort(sortBy('name'));
+
+    // update places to show in state
     this.setState({ showingPlaces });
   }
 
