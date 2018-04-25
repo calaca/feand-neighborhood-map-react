@@ -40,7 +40,9 @@ Open a terminal at the project root and run `npm install` to install all depende
 
 Click [here](https://calaca.github.io/feand-neighborhood-map-react/) for the live version of this app.
 
-:exclamation: Important: the service worker only works in production mode.
+#### :exclamation: Important :exclamation:
+
+The service worker only works in production mode.
 
 ## Deployment
 
