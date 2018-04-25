@@ -40,10 +40,13 @@ Open a terminal at the project root and run `npm install` to install all depende
 
 Click [here](https://calaca.github.io/feand-neighborhood-map-react/) for the live version of this app.
 
+:exclamation: Important: the service worker only works in production mode.
+
 ## Deployment
 
-1. Run `npm run deploy`
-2. Access http://myname.github.io/myapp
+1. Configure `package.json` informing your `homepage`
+2. Run `npm run deploy`
+3. Access http://githubaccount.github.io/repository
 
 ## Built With
 
