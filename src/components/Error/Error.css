@@ -27,3 +27,20 @@
   display: block;
   margin: 1em auto;
 }
+
+.small {
+  width: calc(70% - 20px);
+  margin: 10px;
+}
+
+@media (max-width: 1179px) {
+  .small {
+    width: calc(60% - 20px);
+  }
+}
+
+@media (max-width: 679px) {
+  .small {
+    width: calc(100% - 20px);
+  }
+}

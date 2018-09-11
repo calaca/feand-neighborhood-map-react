@@ -3,17 +3,18 @@ import PropTypes from 'prop-types';
 import './Error.css';
 import ErrorIcon from '../../assets/imgs/multiply.svg';
 
-const Error = ({ message }) => (
-  <div className="error">
+const Error = ({ message, size }) => (
+  <div className={`error ${size}`}>
     <div className="message" role="alert">
-      <img src={ErrorIcon} alt="Red letter X"/>
-      <p>{ message }</p>
+      <img src={ErrorIcon} alt="Red letter X" />
+      <p>{message}</p>
     </div>
   </div>
 );
 
 Error.propTypes = {
-  message: PropTypes.string.isRequired
-}
+  message: PropTypes.string.isRequired,
+  size: PropTypes.string
+};
 
 export default Error;

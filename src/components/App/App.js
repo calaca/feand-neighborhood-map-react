@@ -18,37 +18,42 @@ class App extends Component {
     center: { lat: -15.8511, lng: -48.9589 },
     showInfoId: false,
     loaded: false,
-    action: ''
-  }
+    action: '',
+    mapError: false
+  };
 
   /**
-  * @description Load initial data
-  */
+   * @description Load initial data
+   */
   componentDidMount() {
     this.setState({
       places: PlacesData,
       showingPlaces: PlacesData,
       loaded: true
     });
+
+    window.gm_authFailure = () => {
+      this.setState({ mapError: true });
+    };
   }
 
   /**
-  * @description Toggle maker's infowindow open
-  * @param {string} id - The marker's place ID
-  * @param {string} action - Type of action fired (open or close)
-  */
+   * @description Toggle maker's infowindow open
+   * @param {string} id - The marker's place ID
+   * @param {string} action - Type of action fired (open or close)
+   */
   onToggleOpen = (id, action) => {
     this.setState({
       showInfoId: id,
       action
     });
-  }
+  };
 
   /**
-  * @description Filter places to show
-  * @param {string} query - The search query
-  */
-  filterPlaces = (query) => {
+   * @description Filter places to show
+   * @param {string} query - The search query
+   */
+  filterPlaces = query => {
     const { places } = this.state;
     let showingPlaces;
 
@@ -70,40 +75,53 @@ class App extends Component {
 
     // update places to show in state
     this.setState({ showingPlaces });
-  }
+  };
 
   render() {
+    const { mapError } = this.state;
     return (
       <div className="app">
         <Top />
         <div className="content">
-          {
-            this.state.loaded &&
+          {this.state.loaded && (
             <Filter
               data={this.state}
               onToggleOpen={this.onToggleOpen}
               filterPlaces={this.filterPlaces}
             />
-          }
-          {
+          )}
+          {mapError ? (
+            <Error
+              size="small"
+              message={
+                'There was an error while loading the Google Maps scripts. Please try again later.'
+              }
+            />
+          ) : (
             <Map
               onToggleOpen={this.onToggleOpen}
               showInfoId={this.state.showInfoId}
               action={this.state.action}
               places={this.state.places}
               showingPlaces={this.state.showingPlaces}
-              containerElement={<main className="map" role="application" tabIndex="0"></main>}
-              mapElement={<div style={{ height: `100%` }}></div>}
+              containerElement={
+                <main className="map" role="application" tabIndex="0" />
+              }
+              mapElement={<div style={{ height: `100%` }} />}
               loadingElement={
-                <Error message={'There was an error while loading the Google Maps scripts. Please try again later.'} />
+                <Error
+                  message={
+                    'There was an error while loading the Google Maps scripts. Please try again later.'
+                  }
+                />
               }
               googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${MAP_API_KEY}&v=3`}
             />
-          }
+          )}
         </div>
         <Footer />
       </div>
-    )
+    );
   }
 }
 
