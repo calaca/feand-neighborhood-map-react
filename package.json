@@ -5,13 +5,13 @@
   "homepage": "http://calaca.github.io/feand-neighborhood-map-react",
   "dependencies": {
     "escape-string-regexp": "^1.0.5",
-    "prop-types": "^15.6.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "react-google-maps": "^9.4.5",
-    "react-scripts": "1.1.1",
+    "react-scripts": "^2.1.1",
     "react-throttle": "^0.3.0",
-    "recompose": "^0.27.0",
+    "recompose": "^0.27.1",
     "sort-by": "^1.2.0"
   },
   "scripts": {
@@ -22,6 +22,12 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "gh-pages": "^1.1.0"
-  }
+    "gh-pages": "^1.2.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
